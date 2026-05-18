@@ -38,7 +38,7 @@ export default function App() {
   const trimmed = petName.trim()
   const name = trimmed
     ? trimmed.charAt(0).toUpperCase() + trimmed.slice(1)
-    : (pet === 'dog' ? 'Your pup' : 'Your cat')
+    : (pet === 'dog' ? 'your pup' : 'your cat')
   const score = computeScore(selectedAddons)
   const level = getLevel(selectedAddons.size)
 
@@ -216,7 +216,7 @@ function Summary({ pet, name, score, level, selectedAddons, onBack, onReset }) {
         transition={{ delay: 0.18, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
       >
         <h1 className={styles.summaryHeadline}>
-          {name}'s care plan 💖
+          {name.charAt(0).toUpperCase() + name.slice(1)}'s care plan 💖
         </h1>
         <p className={styles.summarySubline}>Here's what Fetch will cover.</p>
 
