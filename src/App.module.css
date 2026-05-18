@@ -354,9 +354,9 @@
   .petSticky {
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: var(--space-5);
-    padding: var(--space-6) var(--space-5);
+    padding: var(--space-6) var(--space-5) var(--space-6) var(--space-7);
     height: auto;
   }
 
