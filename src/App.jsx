@@ -61,15 +61,32 @@ export default function App() {
     <div className={styles.app}>
       <header className={styles.header}>
         <span className={styles.logo}>🐾 Fetch</span>
-        {step !== 'choose' && (
-          <div className={styles.steps} aria-label="Progress">
-            <span className={styles.stepDone}>Choose</span>
-            <div className={styles.stepLine} />
-            <span className={step === 'build' ? styles.stepActive : styles.stepDone}>Customize</span>
-            <div className={styles.stepLine} />
-            <span className={step === 'summary' ? styles.stepActive : styles.stepIdle}>Plan</span>
-          </div>
-        )}
+        <nav className={styles.steps} aria-label="Form progress">
+          <button
+            className={`${styles.stepBtn} ${step === 'choose' ? styles.stepActive : styles.stepDone}`}
+            onClick={() => setStep('choose')}
+            disabled={step === 'choose'}
+            aria-current={step === 'choose' ? 'step' : undefined}
+          >Choose</button>
+          <div className={styles.stepLine} aria-hidden="true" />
+          <button
+            className={`${styles.stepBtn} ${
+              step === 'build' ? styles.stepActive :
+              step === 'summary' ? styles.stepDone :
+              styles.stepIdle
+            }`}
+            onClick={step === 'summary' ? () => setStep('build') : undefined}
+            disabled={step !== 'summary'}
+            aria-current={step === 'build' ? 'step' : undefined}
+          >Customize</button>
+          <div className={styles.stepLine} aria-hidden="true" />
+          <button
+            className={`${styles.stepBtn} ${step === 'summary' ? styles.stepActive : styles.stepIdle}`}
+            disabled
+            aria-current={step === 'summary' ? 'step' : undefined}
+          >Plan</button>
+        </nav>
+        <div aria-hidden="true" className={styles.headerEnd} />
       </header>
 
       <AnimatePresence mode="wait">
