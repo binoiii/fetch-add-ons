@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.scoreRow {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.number {
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-success);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  display: inline-block;
+}
+
+.max {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.track {
+  width: 100%;
+  max-width: 160px;
+  height: 6px;
+  background: rgba(109, 220, 145, 0.15);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: var(--color-success);
+  border-radius: var(--radius-full);
+  min-width: 6px;
+}

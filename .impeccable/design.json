@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-18T00:00:00Z",
+  "title": "Design System: Fetch Care Builder",
+  "extensions": {
+    "colorMeta": {
+      "bloom-pink":     { "role": "primary",   "displayName": "Bloom Pink",     "canonical": "oklch(67% 0.28 350)", "tonalRamp": ["oklch(20% 0.08 350)", "oklch(30% 0.14 350)", "oklch(40% 0.20 350)", "oklch(50% 0.25 350)", "oklch(60% 0.28 350)", "oklch(70% 0.24 350)", "oklch(82% 0.16 350)", "oklch(94% 0.06 350)"] },
+      "vitality-green": { "role": "secondary",  "displayName": "Vitality Green",  "canonical": "oklch(82% 0.16 152)", "tonalRamp": ["oklch(20% 0.06 152)", "oklch(32% 0.10 152)", "oklch(44% 0.13 152)", "oklch(56% 0.15 152)", "oklch(68% 0.16 152)", "oklch(78% 0.14 152)", "oklch(88% 0.09 152)", "oklch(96% 0.04 152)"] },
+      "petal-white":    { "role": "neutral-bg", "displayName": "Petal White",     "canonical": "oklch(98% 0.007 350)", "tonalRamp": ["oklch(15% 0.005 350)", "oklch(28% 0.005 350)", "oklch(42% 0.006 350)", "oklch(56% 0.006 350)", "oklch(70% 0.007 350)", "oklch(82% 0.007 350)", "oklch(91% 0.007 350)", "oklch(98% 0.007 350)"] },
+      "card-white":     { "role": "surface",    "displayName": "Card White",      "canonical": "oklch(100% 0 0)",     "tonalRamp": ["oklch(15% 0 0)", "oklch(28% 0 0)", "oklch(42% 0 0)", "oklch(56% 0 0)", "oklch(70% 0 0)", "oklch(82% 0 0)", "oklch(91% 0 0)", "oklch(100% 0 0)"] },
+      "deep-ink":       { "role": "on-surface", "displayName": "Deep Ink",        "canonical": "oklch(20% 0.005 270)", "tonalRamp": ["oklch(10% 0.003 270)", "oklch(20% 0.005 270)", "oklch(32% 0.007 270)", "oklch(44% 0.008 270)", "oklch(56% 0.009 270)", "oklch(68% 0.009 270)", "oklch(80% 0.007 270)", "oklch(93% 0.004 270)"] },
+      "quiet-stone":    { "role": "neutral",    "displayName": "Quiet Stone",     "canonical": "oklch(52% 0.013 264)", "tonalRamp": ["oklch(18% 0.005 264)", "oklch(28% 0.008 264)", "oklch(38% 0.010 264)", "oklch(48% 0.012 264)", "oklch(58% 0.013 264)", "oklch(68% 0.011 264)", "oklch(80% 0.008 264)", "oklch(93% 0.004 264)"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Hero headlines and the pet name on the final screen. One per screen." },
+      "headline": { "displayName": "Headline", "purpose": "Step titles and section labels." },
+      "body":     { "displayName": "Body",     "purpose": "Add-on descriptions and supporting copy. Max 65–70ch." },
+      "label":    { "displayName": "Label",    "purpose": "Card names, badge labels, score annotations." }
+    },
+    "shadows": [
+      { "name": "resting",   "value": "0 2px 8px rgba(0, 0, 0, 0.06)",          "purpose": "Default card state. Barely visible surface separation." },
+      { "name": "lifted",    "value": "0 4px 20px rgba(0, 0, 0, 0.10)",         "purpose": "Hovered interactive elements. Communicates affordance." },
+      { "name": "prominent", "value": "0 8px 40px rgba(0, 0, 0, 0.14)",         "purpose": "Modals and the final summary card." },
+      { "name": "pink-glow", "value": "0 8px 32px rgba(255, 79, 163, 0.25)",    "purpose": "Selected pet cards and primary CTA. Only colored shadow in the system." }
+    ],
+    "motion": [
+      { "name": "ease-fast",     "value": "150ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Micro-interactions: checkbox toggle, color switch." },
+      { "name": "ease-standard", "value": "250ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Card hover, button press, opacity changes." },
+      { "name": "ease-slow",     "value": "400ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Pet state transitions, screen-level changes." },
+      { "name": "count-up",      "value": "600ms ease-out via requestAnimationFrame", "purpose": "Health score animation on add-on toggle." }
+    ],
+    "breakpoints": [
+      { "name": "sm",  "value": "640px",  "purpose": "Mobile breakpoint. Stack split layout to single column." },
+      { "name": "md",  "value": "768px",  "purpose": "Tablet. Adjust card grid columns." },
+      { "name": "lg",  "value": "1024px", "purpose": "Desktop. Full split layout active." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA. Pill-shaped, Bloom Pink. Used for the primary action on each screen.",
+      "html": "<button class=\"ds-btn-primary\">Get Started</button>",
+      "css": ".ds-btn-primary { background: #FF4FA3; color: #fff; padding: 14px 32px; font-family: Inter, system-ui, sans-serif; font-size: 1rem; font-weight: 600; border: none; border-radius: 9999px; cursor: pointer; transition: background 250ms ease, transform 250ms ease, box-shadow 250ms ease; } .ds-btn-primary:hover { background: #e8408f; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 79, 163, 0.35); } .ds-btn-primary:focus-visible { outline: 3px solid #FF4FA3; outline-offset: 3px; } .ds-btn-primary:active { transform: translateY(0); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action. Transparent with Bloom Pink border and text.",
+      "html": "<button class=\"ds-btn-ghost\">Back</button>",
+      "css": ".ds-btn-ghost { background: transparent; color: #FF4FA3; padding: 13px 32px; font-family: Inter, system-ui, sans-serif; font-size: 1rem; font-weight: 600; border: 1.5px solid #FF4FA3; border-radius: 9999px; cursor: pointer; transition: background 250ms ease, transform 250ms ease; } .ds-btn-ghost:hover { background: rgba(255, 79, 163, 0.06); transform: translateY(-1px); } .ds-btn-ghost:focus-visible { outline: 3px solid #FF4FA3; outline-offset: 3px; }"
+    },
+    {
+      "name": "Pet Card",
+      "kind": "card",
+      "refersTo": "pet-card",
+      "description": "Large selection card for dog or cat. Lifts and glows on hover/selection.",
+      "html": "<button class=\"ds-pet-card\" aria-pressed=\"false\"><div class=\"ds-pet-card__emoji\">🐶</div><div class=\"ds-pet-card__label\">Dog</div></button>",
+      "css": ".ds-pet-card { background: #fff; border: 1.5px solid rgba(0,0,0,0.06); border-radius: 24px; padding: 32px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: box-shadow 250ms ease, transform 250ms ease, border-color 250ms ease; box-shadow: 0 2px 8px rgba(0,0,0,0.06); min-width: 160px; } .ds-pet-card__emoji { font-size: 3rem; line-height: 1; } .ds-pet-card__label { font-family: Inter, system-ui, sans-serif; font-size: 1.125rem; font-weight: 600; color: #1F1F1F; } .ds-pet-card:hover { box-shadow: 0 8px 32px rgba(255,79,163,0.15); transform: translateY(-3px); border-color: rgba(255,79,163,0.4); } .ds-pet-card[aria-pressed='true'] { border-color: #FF4FA3; box-shadow: 0 8px 32px rgba(255,79,163,0.25); transform: scale(1.02); } .ds-pet-card:focus-visible { outline: 3px solid #FF4FA3; outline-offset: 3px; }"
+    },
+    {
+      "name": "Add-on Card",
+      "kind": "card",
+      "refersTo": "addon-card",
+      "description": "Toggle card for a care add-on. Tints pink when selected.",
+      "html": "<button class=\"ds-addon-card\" aria-pressed=\"false\"><div class=\"ds-addon-card__icon\">🦷</div><div class=\"ds-addon-card__info\"><div class=\"ds-addon-card__name\">Dental Care</div><div class=\"ds-addon-card__desc\">Sparkling clean teeth, every time.</div></div><div class=\"ds-addon-card__check\" aria-hidden=\"true\"></div></button>",
+      "css": ".ds-addon-card { background: #fff; border: 1.5px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 16px; cursor: pointer; display: flex; align-items: center; gap: 12px; text-align: left; width: 100%; transition: background 200ms ease, border-color 200ms ease, box-shadow 200ms ease; box-shadow: 0 2px 8px rgba(0,0,0,0.06); } .ds-addon-card__icon { font-size: 1.5rem; flex-shrink: 0; } .ds-addon-card__info { flex: 1; } .ds-addon-card__name { font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; color: #1F1F1F; transition: color 200ms ease; } .ds-addon-card__desc { font-size: 0.8125rem; color: #6B7280; margin-top: 2px; } .ds-addon-card__check { width: 20px; height: 20px; border-radius: 9999px; border: 1.5px solid rgba(0,0,0,0.2); flex-shrink: 0; transition: background 200ms ease, border-color 200ms ease; } .ds-addon-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); } .ds-addon-card[aria-pressed='true'] { background: #FFF0F8; border-color: #FF4FA3; } .ds-addon-card[aria-pressed='true'] .ds-addon-card__name { color: #FF4FA3; } .ds-addon-card[aria-pressed='true'] .ds-addon-card__check { background: #FF4FA3; border-color: #FF4FA3; } .ds-addon-card:focus-visible { outline: 3px solid #FF4FA3; outline-offset: 3px; }"
+    },
+    {
+      "name": "Health Score",
+      "kind": "custom",
+      "refersTo": "health-score",
+      "description": "Animated score display. Number counts up in Vitality Green on each add-on toggle.",
+      "html": "<div class=\"ds-health-score\"><div class=\"ds-health-score__number\">42</div><div class=\"ds-health-score__label\">Health Score</div><div class=\"ds-health-score__bar\"><div class=\"ds-health-score__fill\" style=\"width: 42%\"></div></div></div>",
+      "css": ".ds-health-score { text-align: center; } .ds-health-score__number { font-family: Inter, system-ui, sans-serif; font-size: clamp(2rem, 5vw, 2.25rem); font-weight: 700; color: #6DDC91; line-height: 1; letter-spacing: -0.02em; } .ds-health-score__label { font-size: 0.875rem; font-weight: 500; color: #6B7280; margin-top: 4px; } .ds-health-score__bar { height: 6px; background: rgba(109, 220, 145, 0.15); border-radius: 9999px; margin-top: 12px; overflow: hidden; } .ds-health-score__fill { height: 100%; background: #6DDC91; border-radius: 9999px; transition: width 600ms cubic-bezier(0.4, 0, 0.2, 1); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Companion Care Studio",
+    "overview": "This system lives in the space between a premium wellness brand and a caring product tool. It is warm without being saccharine, playful without being childish, and polished without feeling cold. Every surface should feel like it was considered.\n\nThe emotional thesis is direct: selecting more care for your pet should feel rewarding. The interface communicates value through visual state change, not text. When a user toggles an add-on, the pet responds. When the score climbs, the interface brightens. The feedback loop IS the product.\n\nThis system explicitly rejects clinical healthcare aesthetics, cute/kiddy aesthetics, corporate insurance aesthetics, purple-gradient SaaS defaults, and identical card grids.",
+    "keyCharacteristics": [
+      "Warm petal-white backgrounds with a soft pink cast — never pure white",
+      "Bloom pink as the single saturated voice, used on focal points only",
+      "Rounded but not bubbly: 24px on major containers, 16px on cards, 9999px on buttons",
+      "Motion as feedback: state changes communicated through the pet's evolution",
+      "Inter across all type roles — hierarchy through weight and size contrast",
+      "Flat at rest, lifted on interaction"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Bloom Pink is used on ≤15% of any given screen. If two elements are competing for the pink, one of them doesn't deserve it.", "section": "colors" },
+      { "name": "The Tinted-White Rule", "body": "#fff is prohibited as a background color. #FFF8FB for the page; #FFFFFF for card surfaces only.", "section": "colors" },
+      { "name": "The Weight Contrast Rule", "body": "Adjacent text roles must differ by at least one full weight step (400 → 600, 600 → 700). Flat weight hierarchies feel cheap.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Shadows appear in response to state (hover, selection, focus), not as decoration. A card grid with identical shadows on every card has failed.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Bloom Pink (#FF4FA3) on ≤15% of any given screen.",
+      "Do use #FFF8FB (Petal White) as the page background — never #fff.",
+      "Do animate state changes with ease-out curves (cubic-bezier(0.4, 0, 0.2, 1)).",
+      "Do use translateY(-2px) + shadow increase for hover lift on interactive cards.",
+      "Do convey depth through background contrast before reaching for shadows.",
+      "Do keep Inter's weight jumps at ≥1 full step between adjacent hierarchy levels.",
+      "Do respect prefers-reduced-motion: cut all transition durations to near zero."
+    ],
+    "donts": [
+      "Don't use a border-left stripe as a colored accent on cards or list items.",
+      "Don't use gradient text (background-clip: text). Bloom Pink is solid.",
+      "Don't design for insurance, enterprise, or admin dashboard aesthetics.",
+      "Don't design for clinical or veterinary aesthetics — no cold medical blues, no sterile white expanses.",
+      "Don't design for kiddy or cartoon aesthetics — no bubble fonts, no excessive illustration flourishes.",
+      "Don't use identical card grids with the same shadow, size, and internal structure on every card.",
+      "Don't use glassmorphism as decoration.",
+      "Don't use pure #000 or #fff as text or background colors."
+    ]
+  }
+}
