@@ -348,6 +348,11 @@
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     background: linear-gradient(160deg, #fff5fa 0%, var(--color-background) 100%);
+    overflow: hidden;
+  }
+
+  .petSticky {
+    padding: var(--space-6) var(--space-5);
   }
 
   .petSticky {
