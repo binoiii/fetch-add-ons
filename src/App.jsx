@@ -38,7 +38,7 @@ export default function App() {
   const trimmed = petName.trim()
   const name = trimmed
     ? trimmed.charAt(0).toUpperCase() + trimmed.slice(1)
-    : (pet === 'dog' ? 'your pup' : 'your cat')
+    : (pet === 'dog' ? 'Your pup' : 'Your cat')
   const score = computeScore(selectedAddons)
   const level = getLevel(selectedAddons.size)
 
