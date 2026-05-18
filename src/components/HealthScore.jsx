@@ -20,7 +20,7 @@ export function HealthScore({ score }) {
         <span className={styles.max}>/100</span>
       </div>
       <span className={styles.label}>Health Score</span>
-      <div className={styles.track} role="progressbar" aria-valuenow={score} aria-valuemin={0} aria-valuemax={100}>
+      <div className={styles.track} role="progressbar" aria-label="Health Score" aria-valuenow={score} aria-valuemin={0} aria-valuemax={100}>
         <motion.div
           className={styles.fill}
           animate={{ width: `${score}%` }}

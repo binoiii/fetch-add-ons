@@ -46,7 +46,7 @@ export function AnimatedPet({ pet, level, selectedAddons }) {
           />
         )}
 
-        {SPARKLE_SLOTS.map((pos, i) => (
+        {SPARKLE_SLOTS.map(({ delay, ...pos }, i) => (
           <motion.span
             key={i}
             className={styles.sparkle}
@@ -59,7 +59,7 @@ export function AnimatedPet({ pet, level, selectedAddons }) {
             }
             transition={
               i < sparkleCount
-                ? { duration: 1.9, repeat: Infinity, delay: pos.delay, ease: 'easeInOut' }
+                ? { duration: 1.9, repeat: Infinity, delay, ease: 'easeInOut' }
                 : { duration: 0.25 }
             }
           >
@@ -67,8 +67,9 @@ export function AnimatedPet({ pet, level, selectedAddons }) {
           </motion.span>
         ))}
 
+        <div className={`${!reduced && level === 3 ? styles.wag : ''}`}>
         <motion.div
-          className={`${styles.floatWrapper} ${!reduced && level === 3 ? styles.wag : ''}`}
+          className={styles.floatWrapper}
           animate={reduced ? {} : { y: [0, -11, 0] }}
           transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
         >
@@ -85,6 +86,7 @@ export function AnimatedPet({ pet, level, selectedAddons }) {
             </motion.span>
           </AnimatePresence>
         </motion.div>
+        </div>
 
         <AnimatePresence>
           {Object.entries(BADGE_MAP).map(([id, { emoji, style }]) =>
