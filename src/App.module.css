@@ -335,19 +335,17 @@
 /* ─── Responsive ─────────────────────────────────────────── */
 @media (max-width: 760px) {
   .buildPage {
-    grid-template-columns: 1fr;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+    overflow: hidden;
   }
 
   .petColumn {
-    position: sticky;
-    top: 60px;
-    z-index: 10;
-    height: auto;
+    flex-shrink: 0;
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    background: rgba(255, 248, 251, 0.92);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(160deg, #fff5fa 0%, var(--color-background) 100%);
   }
 
   .petSticky {
@@ -355,13 +353,13 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-5);
-    padding: var(--space-3) var(--space-5);
+    padding: var(--space-5) var(--space-5);
     height: auto;
   }
 
   .addonsColumn {
-    height: auto;
-    overflow-y: visible;
+    flex: 1;
+    overflow-y: auto;
     padding: var(--space-6) var(--space-5);
   }
 

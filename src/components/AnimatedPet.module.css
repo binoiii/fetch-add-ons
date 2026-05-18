@@ -106,7 +106,7 @@
 }
 
 @media (max-width: 760px) {
-  .scene { width: 150px; height: 150px; }
-  .emoji { font-size: 3.75rem; }
-  .badge { font-size: 1.4rem; }
+  .scene { width: 120px; height: 120px; }
+  .emoji { font-size: 3rem; }
+  .badge { font-size: 1.2rem; }
 }
