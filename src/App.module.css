@@ -340,14 +340,23 @@
   }
 
   .petColumn {
+    position: sticky;
+    top: 60px;
+    z-index: 10;
     height: auto;
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background: rgba(255, 248, 251, 0.92);
+    backdrop-filter: blur(10px);
   }
 
   .petSticky {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-5);
+    padding: var(--space-3) var(--space-5);
     height: auto;
-    padding: var(--space-6) var(--space-5);
   }
 
   .addonsColumn {
@@ -358,10 +367,13 @@
 
   .header {
     padding: 0 var(--space-5);
-    display: flex; /* revert — nav is hidden so centering grid isn't needed */
+    display: flex;
+    justify-content: space-between;
   }
 
-  .steps { display: none; }
+  .headerEnd { display: none; }
+
+  .stepLine { width: 12px; }
 }
 
 @media (max-width: 480px) {

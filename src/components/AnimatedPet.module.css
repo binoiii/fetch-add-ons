@@ -104,3 +104,9 @@
 @media (prefers-reduced-motion: reduce) {
   .wag { animation: none; }
 }
+
+@media (max-width: 760px) {
+  .scene { width: 150px; height: 150px; }
+  .emoji { font-size: 3.75rem; }
+  .badge { font-size: 1.4rem; }
+}

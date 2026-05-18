@@ -78,7 +78,7 @@ export default function App() {
             onClick={step === 'summary' ? () => setStep('build') : undefined}
             disabled={step !== 'summary'}
             aria-current={step === 'build' ? 'step' : undefined}
-          >Customize</button>
+          >Customise</button>
           <div className={styles.stepLine} aria-hidden="true" />
           <button
             className={`${styles.stepBtn} ${step === 'summary' ? styles.stepActive : styles.stepIdle}`}
@@ -138,7 +138,7 @@ export default function App() {
           <motion.div key="build" className={styles.buildPage} {...page}>
             <div className={styles.petColumn}>
               <div className={styles.petSticky}>
-                <AnimatedPet pet={pet} level={level} selectedAddons={selectedAddons} />
+                <AnimatedPet pet={pet} level={level} selectedAddons={selectedAddons} compact />
                 <HealthScore score={score} />
               </div>
             </div>

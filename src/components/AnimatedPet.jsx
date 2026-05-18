@@ -28,7 +28,7 @@ const BADGE_MAP = {
   mental:       { emoji: '🧠', style: { top: '50%',    left: '-7%',  transform: 'translateY(-50%)' } },
 }
 
-export function AnimatedPet({ pet, level, selectedAddons }) {
+export function AnimatedPet({ pet, level, selectedAddons, compact = false }) {
   const reduced = useReducedMotion()
   const sparkleCount = SPARKLE_COUNT[level]
   const petEmoji = pet === 'dog' ? '🐶' : '🐱'
@@ -107,20 +107,22 @@ export function AnimatedPet({ pet, level, selectedAddons }) {
         </AnimatePresence>
       </div>
 
-      <AnimatePresence mode="wait">
-        {level > 0 && (
-          <motion.p
-            key={level}
-            className={styles.status}
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -5 }}
-            transition={{ duration: 0.25 }}
-          >
-            {STATUS[level]}
-          </motion.p>
-        )}
-      </AnimatePresence>
+      {!compact && (
+        <AnimatePresence mode="wait">
+          {level > 0 && (
+            <motion.p
+              key={level}
+              className={styles.status}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.25 }}
+            >
+              {STATUS[level]}
+            </motion.p>
+          )}
+        </AnimatePresence>
+      )}
     </div>
   )
 }
