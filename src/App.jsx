@@ -197,6 +197,7 @@ export default function App() {
 }
 
 function Summary({ pet, name, score, level, selectedAddons, onBack, onReset }) {
+  const [showModal, setShowModal] = useState(false)
   const chosen = ADDONS.filter(a => selectedAddons.has(a.id))
 
   return (
@@ -242,11 +243,79 @@ function Summary({ pet, name, score, level, selectedAddons, onBack, onReset }) {
 
         <div className={styles.summaryActions}>
           <Button variant="ghost" onClick={onBack}>Edit plan</Button>
-          <Button onClick={() => alert('Coming soon! 🐾')}>Get this plan</Button>
+          <Button onClick={() => setShowModal(true)}>Get this plan</Button>
         </div>
       </motion.div>
 
       <button className={styles.startOver} onClick={onReset}>Start over</button>
+
+      <AnimatePresence>
+        {showModal && (
+          <PlanModal
+            name={name}
+            score={score}
+            chosen={chosen}
+            onClose={() => setShowModal(false)}
+            onReset={onReset}
+          />
+        )}
+      </AnimatePresence>
     </div>
+  )
+}
+
+function PlanModal({ name, score, chosen, onClose, onReset }) {
+  return (
+    <motion.div
+      className={styles.modalBackdrop}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+      onClick={onClose}
+    >
+      <motion.div
+        className={styles.modalCard}
+        initial={{ scale: 0.9, opacity: 0, y: 16 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.92, opacity: 0, y: 10 }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        onClick={e => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-headline"
+      >
+        <button
+          className={styles.modalClose}
+          onClick={onClose}
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+        <div className={styles.modalIcon} aria-hidden="true">🐾</div>
+
+        <h2 id="modal-headline" className={styles.modalHeadline}>
+          You're all set!
+        </h2>
+        <p className={styles.modalBody}>
+          {name.charAt(0).toUpperCase() + name.slice(1)}'s plan is ready. A Fetch advisor will
+          reach out within 24 hours to finalise coverage and get everything activated.
+        </p>
+
+        <div className={styles.modalPlanSummary}>
+          <span className={styles.modalPlanLabel}>
+            {chosen.length} add-on{chosen.length !== 1 ? 's' : ''} · health score {score}
+          </span>
+          <span className={styles.modalPlanAddons}>
+            {chosen.map(a => a.emoji).join(' ')}
+          </span>
+        </div>
+
+        <div className={styles.modalActions}>
+          <Button onClick={onReset}>Start a new plan</Button>
+        </div>
+      </motion.div>
+    </motion.div>
   )
 }
